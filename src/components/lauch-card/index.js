@@ -1,20 +1,8 @@
 import React from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
-// import { device } from "../../helpers";
 import Image from "../image";
 import Lockup from "../lockup";
-
-// const LaunchCardWrapper = styled.div`
-//   display: block;
-//   margin-bottom: 30px;
-//   margin-left: 20px;
-//   width: 100%;
-
-//   @media ${device.laptop} {
-//     width: 30%;
-//   }
-// `;
 
 const LaunchCardContainer = styled.div`
   display: flex;
@@ -43,7 +31,6 @@ const Content = styled.div`
 
 function LaunchCard(props) {
   return (
-    // <LaunchCardWrapper>
       <LaunchCardContainer>
         <ImagContainer>
           <Image url={props.image} />
@@ -52,9 +39,7 @@ function LaunchCard(props) {
         <Content>
           <Lockup text={props.description} tag="h3" title={props.title} />
         </Content>
-        {/* Youtube Link ? */}
       </LaunchCardContainer>
-    // </LaunchCardWrapper>
   );
 }
 

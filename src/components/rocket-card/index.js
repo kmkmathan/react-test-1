@@ -1,22 +1,10 @@
 import React from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
-// import { device } from "../../helpers";
 import Image from "../image";
 import Lockup from "../lockup";
 
-// const LaunchCardWrapper = styled.div`
-//   display: block;
-//   margin-bottom: 30px;
-//   margin-left: 20px;
-//   width: 100%;
-
-//   @media ${device.laptop} {
-//     width: 30%;
-//   }
-// `;
-
-const LaunchCardContainer = styled.div`
+const RocketCardContainer = styled.div`
   display: flex;
   flex-direction: column-reverse;
 `;
@@ -41,10 +29,9 @@ const Content = styled.div`
   flex: 1;
 `;
 
-function LaunchCard(props) {
+function RocketCard(props) {
   return (
-    // <LaunchCardWrapper>
-      <LaunchCardContainer>
+      <RocketCardContainer>
         <ImagContainer>
           <Image url={props.image} />
         </ImagContainer>
@@ -52,16 +39,14 @@ function LaunchCard(props) {
         <Content>
           <Lockup text={props.description} tag="h3" title={props.title} />
         </Content>
-        {/* Youtube Link ? */}
-      </LaunchCardContainer>
-    // </LaunchCardWrapper>
+      </RocketCardContainer>
   );
 }
 
-LaunchCard.propTypes = {
+RocketCard.propTypes = {
   image: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
   description: PropTypes.string
 }
 
-export default LaunchCard;
+export default RocketCard;
