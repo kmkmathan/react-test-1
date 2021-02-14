@@ -1,6 +1,6 @@
 
 module.exports = function (app) {
-    const spaceXCtrl = require("../controllers/spaceX");
+    const spaceX = require("../controllers/spaceX");
     
     app.get("/launches", async (req, res) =>  {
       	try {
@@ -14,7 +14,7 @@ module.exports = function (app) {
                 links: 1,
             }
 
-            const result = await spaceXCtrl.getSpaceXListItem(path, req, select, search);
+            const result = await spaceX.getSpaceXListItem(path, req, select, search);
 
             return res.status(200).json({ result: result });
         } catch (err) {
@@ -37,7 +37,7 @@ module.exports = function (app) {
                 flickr_images: 1
             }
 
-            const result = await spaceXCtrl.getSpaceXListItem(path, req, select);
+            const result = await spaceX.getSpaceXListItem(path, req, select);
 
             return res.status(200).json({ result: result });
         } catch (err) {
