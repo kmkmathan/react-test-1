@@ -77,7 +77,7 @@ function Launch() {
                 <ContentSelector>
                     <button>Launches</button>
                     <button>Rockets</button>
-                    <input onChange={(e) => {setSearchparam(e.target.value);setOffsetpage(0)}} defaultValue={searchparam} placeholder="Search here" type="search"/>
+                    <input onChange={(e) => { setLoading(true);setData({ launches: []});setSearchparam(e.target.value);setOffsetpage(0)}} defaultValue={searchparam} placeholder="Search here" type="search"/>
                 </ContentSelector>
             </Section>
             <Section>
@@ -98,7 +98,7 @@ function Launch() {
                 </Wrapper>
                 )}
                 {data.launches?.length === 0 && !loading  && <Nosearch>No data found related to the serach value: <strong>{searchparam}</strong> </Nosearch>}
-                {!loadpage && <Image src={loader} />}
+                {data.launches?.length > 0 && !loadpage && <Image src={loader} />}
             </Section>
         </>
     )
