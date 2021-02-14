@@ -50,16 +50,11 @@ function App() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const config = {
-      headers: {
-        "Access-Control-Allow-Origin": "*",
-        "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,PATCH,OPTIONS"
-      }
-    };
+   
     
     const fetchData = async () => {
       const result = await axios(
-        "http://localhost:5000/api/v1/launches?limit=12", config
+        "http://localhost:5000/api/v1/launches?limit=12"
       );
 
       console.log(result.data.data.docs);
