@@ -6,6 +6,7 @@ import Wrapper from "../../layout/wrapper";
 import LaunchCard from "../lauch-card";
 import Grid from "../../layout/grid";
 import loader from "../../images/loader.gif";
+// import { device } from "../../helpers";
 
 const Image = styled.img`
     height: auto;
@@ -20,7 +21,6 @@ const ContentSelector = styled.div`
     margin: 0 auto;
     display: flex;
     justify-content: space-between;
-
     button {
         border: none;
         padding: 10px;
@@ -77,7 +77,7 @@ function Launch() {
                 <ContentSelector>
                     <button>Launches</button>
                     <button>Rockets</button>
-                    <input onChange={(e) => { setLoading(true);setData({ launches: []});setSearchparam(e.target.value);setOffsetpage(0)}} defaultValue={searchparam} placeholder="Search here" type="search"/>
+                    <input onChange={(e) => { setLoading(true);setData({ launches: [] });setSearchparam(e.target.value);setOffsetpage(0)}} defaultValue={searchparam} placeholder="Search here" type="search"/>
                 </ContentSelector>
             </Section>
             <Section>

@@ -3,38 +3,39 @@ import PropTypes from "prop-types";
 import styled from 'styled-components';
 import { device } from '../helpers';
 
-export const GridLayout = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  @media ${device.laptop} {
-    margin: -20px 0 0 -20px;
-    width: calc(100% + 20px);
-  }
+export const GridContainer = styled.div`
+    display: flex;
+    flex-wrap: wrap;
+    @media ${device.laptop} {
+        width: calc(100% + 20px);
+        margin: -20px 0 0 -20px;
+    }
 `
 
-const GridItem = styled.div`
-  display: flex;
-  margin-bottom: 30px;
-  width: 100%;
+const GridBox = styled.div`
+    display: flex;
+    margin-bottom: 30px;
+    width: 100%;
 
-  & > * {
-    flex: 1;
+    @media ${device.laptop} {
+        width: calc((100% - 60px) / 3);
+        margin: 20px 0 0 20px;
+    }
+
+    & > * {
+        flex: 1;
   }
 
-  @media ${device.laptop} {
-    margin: 20px 0 0 20px;
-    width: calc((100% - 60px) / 3);
-  }
 `
 
-const GridContainer = (props) => (
-  <GridLayout>
-    {props.children.map((Child, index) => <GridItem key={index}>{Child}</GridItem>)}
-  </GridLayout>
+const GridLayout = (props) => (
+    <GridContainer>
+        {props.children.map((Child, index) => <GridBox key={index}>{Child}</GridBox>)}
+    </GridContainer>
 );
 
-GridContainer.defaultProps = {
-  children: PropTypes.element.isRequired,
+GridLayout.defaultProps = {
+    children: PropTypes.element.isRequired,
 };
 
-export default GridContainer
+export default GridLayout;
